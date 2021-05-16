@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/calculadora.svg') }}" type="image/x-icon"/>
+    
+    <!-- Importamos boostrap -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap-5.0.1-dist/css/bootstrap.min.css') }}">
+</head>
+    <body class="container">
+            <div class="card d-grid gap-2 col-6 mx-auto">
+                <div class="text-center">
+                    <br>
+                    <img src="{{ url_for('static',filename='img/calculadora.svg') }}" alt="calculadora.svg" width="50px">
+                    <h1>CALCULADORA CON FLASK</h1>
+                    <h5>Jaisson De Alba Santos</h5>
+                </div>
+                <div class="card-body">
+                    <form action="/calculate" method="POST">
+                        <div class="md-3">
+                            <label for="num1" class="form-label">Primer numero</label>
+                            <input type="number" class="form-control" id="num1" placeholder="Digite numero" name="num1" required>
+                        </div>
+                        <br>
+                        <div class="md-3">
+                            <label for="num1" class="form-label">Segundo numero</label>
+                            <input type="number" class="form-control" id="num1" placeholder="Digite numero" name="num2" required>
+                        </div>
+                        <br>
+                        <div class="md-3">
+                            <label for="operaciones">Operaciones</label>
+                            <select name="operation" class="form-select" aria-label="Default select example">
+                                <option value="sumar">Sumar</option>
+                                <option value="restar">Restar</option>
+                                <option value="multiplicar">Multiplicar</option>
+                                <option value="dividir">Dividir</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="d-grid gap-2">
+                            <input type="submit" value="calcular" class="btn btn-success">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card d-grid gap-2 col-6 mx-auto">
+                <div class="card-header text-center">
+                    <h2>Resultado</h2>
+                </div>
+                <div class="card-body">
+                    <div class="md-3">
+                        <textarea class="form-control" id="resultado" rows="1" readonly>{{result}}</textarea>
+                      </div>
+                </div>
+            </div>
+    </body>
+</html>
